@@ -22,9 +22,17 @@ public class Square extends Rectangle {
         super(side, side, color, filled);
     }
 
+    /**
+     * constructor3.
+     * @param topLeft toa do
+     * @param side side
+     * @param color mau
+     * @param filled check
+     */
     public Square(Point topLeft, double side, String color, boolean filled) {
-        super(topLeft,side, side, color, filled);
+        super(topLeft, side, side, color, filled);
     }
+
     // setter, getter
     public double getSide() {
         return super.getWidth();
@@ -46,11 +54,24 @@ public class Square extends Rectangle {
     }
 
     /**
+     * check equals.
+     * @param obj object
+     * @return true false
+     */
+    public boolean equals(Object obj) {
+        if (obj instanceof Square) {
+            return ((Square) obj).topLeft == getTopLeft()
+                    && ((Square) obj).width == getWidth();
+        }
+        return false;
+    }
+
+    /**
      * to string.
      * @return string
      */
     public String toString() {
-        return "Square[topleft="+ super.getTopLeft().toString() +"side=" + getSide()
+        return "Square[topLeft=" + super.getTopLeft().toString() + ",side=" + getSide()
                 + ",color=" + super.getColor() + "," + "filled=" + isFilled() + "]";
     }
 }

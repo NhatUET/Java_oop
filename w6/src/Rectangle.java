@@ -29,6 +29,14 @@ public class Rectangle extends Shape {
         this.filled = filled;
     }
 
+    /**
+     * constructor3.
+     * @param topLeft toa do
+     * @param width cr
+     * @param length cd
+     * @param color mau
+     * @param filled check
+     */
     public Rectangle(Point topLeft, double width, double length, String color, boolean filled) {
         this.topLeft = topLeft;
         this.width = width;
@@ -36,6 +44,7 @@ public class Rectangle extends Shape {
         this.color = color;
         this.filled = filled;
     }
+
     //setter, getter
     public double getWidth() {
         return width;
@@ -64,6 +73,7 @@ public class Rectangle extends Shape {
     public int hashCode() {
         return 0;
     }
+
     /**
      * get area.
      * @return area
@@ -83,11 +93,25 @@ public class Rectangle extends Shape {
     }
 
     /**
+     * check equals.
+     * @param obj object
+     * @return true/false
+     */
+    public boolean equals(Object obj) {
+        if (obj instanceof Rectangle) {
+            return ((Rectangle) obj).topLeft.equals(this.topLeft)
+                    && ((Rectangle) obj).length == getLength()
+                    && ((Rectangle) obj).width == getWidth();
+        }
+        return false;
+    }
+
+    /**
      * to string.
      * @return string
      */
     public String toString() {
-        return "Rectangle[topleft=" + getTopLeft().toString() + "width=" + getWidth() + ",length="
+        return "Rectangle[topLeft=" + getTopLeft().toString() + ",width=" + getWidth() + ",length="
                 + getLength() + ",color=" + getColor() + ",filled=" + isFilled() + "]";
     }
 }

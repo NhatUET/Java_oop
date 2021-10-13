@@ -2,6 +2,11 @@ public class Point {
     private double pointX;
     private double pointY;
 
+    /**
+     * constructor.
+     * @param pointX x
+     * @param pointY y
+     */
     public Point(double pointX, double pointY) {
         this.pointX = pointX;
         this.pointY = pointY;
@@ -27,8 +32,16 @@ public class Point {
         return Math.sqrt(Math.pow(pointX - other.pointX, 2) + Math.pow(pointY - other.pointY, 2));
     }
 
+    /**
+     * equals.
+     * @param other obj
+     * @return true/false
+     */
     public boolean equals(Object other) {
-        return this.equals(other);
+        if (other instanceof Point) {
+            return ((Point) other).pointX == pointX && ((Point) other).pointY == pointY;
+        }
+        return false;
     }
 
     public int hashCode() {

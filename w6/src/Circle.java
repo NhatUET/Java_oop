@@ -24,6 +24,13 @@ public class Circle extends Shape {
         this.filled = filled;
     }
 
+    /**
+     * constructor4.
+     * @param center toa do
+     * @param radius goc
+     * @param color mau
+     * @param filled check
+     */
     public Circle(Point center, double radius, String color, boolean filled) {
         this.center = center;
         this.radius = radius;
@@ -48,10 +55,15 @@ public class Circle extends Shape {
         this.center = center;
     }
 
+    /**
+     * check equals.
+     * @param obj obj
+     * @return true/false
+     */
     public boolean equals(Object obj) {
-        Circle other = (Circle) obj;
-        if (this.getRadius() == other.getRadius() && this.getCenter().equals(other.getCenter())) {
-            return true;
+        if (obj instanceof Circle) {
+            return ((Circle) obj).radius == getRadius()
+                    && ((Circle) obj).center.equals(getCenter());
         }
         return false;
     }
@@ -59,6 +71,7 @@ public class Circle extends Shape {
     public int hashCode() {
         return 0;
     }
+
     /**
      * get area.
      * @return area
@@ -77,8 +90,13 @@ public class Circle extends Shape {
         return 2 * Math.PI * getRadius();
     }
 
+    /**
+     * to string.
+     * @return string
+     */
     public String toString() {
-        return "Circle[center="+ getCenter().toString() + "radius=" + getRadius() + ",color=" + getColor()
+        return "Circle[center=" + getCenter().toString() + ",radius="
+                + getRadius() + ",color=" + getColor()
                 + ",filled=" + isFilled() + "]";
     }
 }
